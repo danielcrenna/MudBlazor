@@ -15,7 +15,7 @@ namespace MudBlazor
         private ElementReference _contentRef;
         private DrawerClipMode _clipMode;
         private bool? _isOpenWhenLarge = null;
-        private bool _open, _rtl, _isRendered, _initial = true, _keepInitialState, _fixed = true;
+        private bool _open, _rtl, _isRendered, _initial = true, _keepInitialState, _fixed = true, _stayOpen = false;
         private Breakpoint _breakpoint = Breakpoint.Md, _screenBreakpoint = Breakpoint.None;
         private Guid _breakpointListenerSubscriptionId;
 
@@ -28,8 +28,8 @@ namespace MudBlazor
         new CssBuilder("mud-drawer")
           .AddClass($"mud-drawer-fixed", Fixed)
           .AddClass($"mud-drawer-pos-{GetPosition()}")
-          .AddClass($"mud-drawer--open", Open)
-          .AddClass($"mud-drawer--closed", !Open)
+          .AddClass($"mud-drawer--open", Open || StayOpen)
+          .AddClass($"mud-drawer--closed", !Open && !StayOpen)
           .AddClass($"mud-drawer--initial", _initial)
           .AddClass($"mud-drawer-{Breakpoint.ToDescriptionString()}")
           .AddClass($"mud-drawer-clipped-{_clipMode.ToDescriptionString()}")
@@ -91,6 +91,23 @@ namespace MudBlazor
                 if (_fixed == value)
                     return;
                 _fixed = value;
+            }
+        }
+
+
+        /// <summary>
+        /// If true, drawer will remain visible even if closed. Used for toggling between a full-sized drawer and a mini drawer. 
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.Drawer.Behavior)]
+        public bool StayOpen
+        {
+            get => _stayOpen;
+            set
+            {
+                if (_stayOpen == value)
+                    return;
+                _stayOpen = value;
             }
         }
 
