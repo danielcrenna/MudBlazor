@@ -33,6 +33,20 @@ namespace MudBlazor
         [Category(CategoryTypes.List.Behavior)]
         public string Text { get; set; }
 
+        /// <summary>
+        /// Sets the Text Classname.
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.List.Appearance)]
+        public string TextClassname { get; set; } = "mud-list-item-text";
+
+        /// <summary>
+        /// Sets the Text Style.
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.List.Appearance)]
+        public string TextStyle { get; set; }
+
         [Parameter]
         [Category(CategoryTypes.List.Selecting)]
         public object Value { get; set; }
@@ -147,6 +161,13 @@ namespace MudBlazor
         [Parameter]
         [Category(CategoryTypes.List.Appearance)]
         public bool Inset { get; set; }
+        
+        /// <summary>
+        /// Sets the Text Classname.
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.List.Appearance)]
+        public string InsetClassname { get; set; } = "mud-list-item-text-inset";
 
         /// <summary>
         /// If true, compact vertical padding will be used.

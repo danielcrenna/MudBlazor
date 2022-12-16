@@ -16,7 +16,7 @@
             <MudIcon Icon="@Icon" Color="@IconColor" Size="@IconSize" />
         </div>
     }
-    <div class="mud-list-item-text @(Inset? "mud-list-item-text-inset" : "")">
+    <div class="@TextClassname @(Inset? @InsetClassname : "")" style="@TextStyle">
         <MudText Typo="@_textTypo">
             @if (ChildContent != null)
             {
