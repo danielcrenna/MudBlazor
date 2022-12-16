@@ -107,6 +107,20 @@ namespace MudBlazor
         public Size IconSize { get; set; } = Size.Medium;
 
         /// <summary>
+        /// Sets the Icon Classname.
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.List.Appearance)]
+        public string IconClassname { get; set; } = "mud-list-item-icon";
+
+        /// <summary>
+        /// Sets the Icon Style.
+        /// </summary>
+        [Parameter]
+        [Category(CategoryTypes.List.Appearance)]
+        public string IconStyle { get; set; }
+
+        /// <summary>
         /// The color of the adornment if used. It supports the theme colors.
         /// </summary>
         [Parameter]
